@@ -15,7 +15,6 @@ $gap: 1px;
 $columns: 7;
 $size: 100px;
 $calendar-size: ($columns * $size) + 6 * $gap;
-$padding: 10px;
 $day-color: #eee;
 $days: (
   'mon': 0,
@@ -28,7 +27,6 @@ $days: (
 );
 
 .calendar {
-  // margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   gap: $gap;
@@ -44,10 +42,8 @@ $days: (
 
   @for $i from 28 through 31 {
     &--month-length-#{$i} {
-      @for $y from $i through 31 {
-        .calendar__day:nth-child(#{$y + 1}) {
-          display: none;
-        }
+      .calendar__day:nth-child(n + #{$i + 1}) {
+        display: none;
       }
     }
   }
