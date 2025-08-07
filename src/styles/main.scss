@@ -14,7 +14,8 @@ body {
 $gap: 1px;
 $columns: 7;
 $size: 100px;
-$calendar-size: ($columns * $size) + 6 * $gap;
+$padding-horizontal: 10px;
+$calendar-size: ($columns * $size) + (($columns - 1) * $gap) + (2 * $padding-horizontal);
 $day-color: #eee;
 $days: (
   'mon': 0,
@@ -56,12 +57,12 @@ $days: (
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 0.5s;
 
     &:hover {
       cursor: pointer;
       background-color: #ffbfcb;
       transform: translateY(-20px);
-      transition: 0.5s;
     }
 
     @for $i from 1 through 31 {
